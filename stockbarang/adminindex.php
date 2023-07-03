@@ -62,7 +62,7 @@ require 'cek.php';
                     <div class="container-fluid">
                         <h1 class="mt-4">Stock Barang</h1>
                         
-                        <
+                        
                         <div class="card mb-4">
                             <div class="card-header">
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">

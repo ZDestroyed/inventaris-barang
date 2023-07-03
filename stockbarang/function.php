@@ -312,4 +312,50 @@ if(isset($_POST['hapusbarangkeluar'])){
 };
 
 
+//menambah admin 
+if(isset($_POST['addadmin'])){
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $role = $_POST['role'];
+
+    $queryinsert = mysqli_query($conn,"insert into login (email, password, role) values('$email','$password','$role')");
+    if($addtotable){
+        header('location:kelolaadmin.php');
+    }else{
+        echo 'gagal';
+        header('location:kelolaadmin.php');
+    }
+};
+
+//update admin
+if(isset($_POST['updateadmin'])){
+    $emailbaru = $_POST['emailadmin'];
+    $passwordbaru = $_POST['password'];
+    $rolebaru = $_POST['role'];
+    $idnya = $_POST['id'];
+
+    $queryupdate = mysqli_query($conn,"update login set email='$emailbaru', password='$passwordbaru', role='$rolebaru' where iduser = '$idnya'");
+    if($queryupdate){
+        header('location:kelolaadmin.php');
+    }else{
+        echo 'gagal';
+        header('location:kelolaadmin.php');
+    }
+};
+
+
+//hapus admin
+if(isset($_POST['hapusadmin'])){
+    $id = $_POST['id'];
+
+    $queryhapus = mysqli_query($conn,"delete from login where iduser='$id'");
+    if($queryhapus){
+        header('location:kelolaadmin.php');
+    }else{
+        echo 'gagal';
+        header('location:kelolaadmin.php');
+    }
+};
+
+
 ?>
